@@ -7,6 +7,10 @@ lab:
 # Module AZ 1006 : Concevoir et implémenter une infrastructure pour prendre en charge les charges de travail SAP sur Azure
 # AZ-1006 Labo de cours en une journée : Vue d’ensemble du déploiement et de la maintenance du Centre Azure pour les solutions SAP (ACSS)
 
+>**Important** : Ce **labo n’est actuellement pas pris en charge** (Février 2024).
+    - Pour plus de détails sur les prérequis du déploiement manuel, consulter [Lab 6a](https://github.com/MicrosoftLearning/AZ-120-Planning-and-Administering-Microsoft-Azure-for-SAP-Workloads/blob/master/Instructions/AZ-120_Lab06a-ACSS_One_Day.md)
+    - Pour le déploiement de l’infrastructure de démonstration ACSS, consultez [Lab 6c(https://github.com/MicrosoftLearning/AZ-120-Planning-and-Administering-Microsoft-Azure-for-SAP-Workloads/blob/master/Instructions/AZ-120_Lab06c-ACSS_One_Day.md)].
+
 Temps estimé : 100 minutes
 
 Toutes les tâches de ce labo de cours en une journée AZ-1006 sont effectuées à partir du portail Azure
@@ -15,7 +19,9 @@ Toutes les tâches de ce labo de cours en une journée AZ-1006 sont effectuées 
 
 À la fin de ce labo, vous serez en mesure de faire ce qui suit :
 
-- Déployer et maintenir l’infrastructure hébergeant des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
+- Implémenter les prérequis minimaux au déploiement d’évaluation des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
+- Déployer l’infrastructure qui héberge des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
+- Maintenir les charges de travail SAP dans Azure avec le Centre Azure pour les solutions SAP
 
 ## Instructions
 
