@@ -25,7 +25,7 @@ Toutes les tâches de ce cours en labo sur une journée AZ-1006 sont effectuées
 
 Ces activités correspondent aux tâches suivantes de cet exercice :
 
-- Tâche 1 : Créez une identité managée attribuée par l’utilisateur Microsoft Entra
+- Tâche 1 : Créer une identité managée affectée par l’utilisateur Microsoft Entra
 - Tâche 2 : Configurez les attributions de rôles RBAC (Contrôle d’accès en fonction du rôle) Azure pour l’identité managée affectée par l'utilisateur Microsoft Entra ID
 - Tâche 3 : Créez le réseau virtuel Azure
 
@@ -46,16 +46,16 @@ L’implémentation des prérequis inclut les activités suivantes :
 
 Ces activités correspondent aux tâches suivantes de cet exercice :
 
-- Tâche 1 : Créez une identité managée attribuée par l’utilisateur Microsoft Entra
+- Tâche 1 : Créer une identité managée affectée par l’utilisateur Microsoft Entra
 - Tâche 2 : Créez le réseau virtuel Azure
 
 #### Tâche 1 : Créez une identité managée attribuée par l’utilisateur Microsoft Entra
 
-Dans cette tâche, vous créez une identité managée affectée par l’utilisateur Microsoft Entra à être utilisé par le Centre Azure pour les solutions SAP pour l’accès de Stockage Azure pendant son déploiement.
+Durant cette tâche, vous créez une identité managée affectée par l’utilisateur Microsoft Entra devant être utilisée par le Centre Azure pour les solutions SAP pour l’accès de Stockage Azure pendant son déploiement.
 
-1. Depuis l’ordinateur du labo, lancez un navigateur web, naviguez vers le Portail Azure à l’adresse `https://portal.azure.com`, puis authentifiez-vous à l’aide d’un compte Microsoft ou d’un compte d’ID Microsoft Entra avec le rôle Propriétaire dans l’abonnement Azure que vous utilisez dans ce labo.
-1. Dans la fenêtre du navigateur web affichant le Portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Identités managées**.
-1. Sur la page **Identités managés**, sélectionner **+ Créer**.
+1. À partir de l’ordinateur de labo, démarrez un navigateur web, naviguez vers le portail Azure à l’adresse `https://portal.azure.com`, et authentifiez-vous à l’aide d’un compte Microsoft ou Microsoft Entra ID disposant du rôle Propriétaire dans l’abonnement Azure que vous utilisez dans ce labo.
+1. Dans la fenêtre du navigateur web affichant le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Identités managées**.
+1. Dans la page **Identités managés**, sélectionnez **+ Créer**.
 1. Sous l’onglet **De base** de la page **Créer une identité managée affectée par l’utilisateur**, spécifiez les paramètres suivants, puis sélectionnez **Vérifier + Créer** :
 
    |Paramètre|Valeur|
@@ -87,8 +87,8 @@ Dans cette tâche, vous créez une identité managée affectée par l’utilisat
 ##### Ajouter une identité : « Rôle de service du Centre Azure pour les solutions SAP »
 
 1. Dans le Portail Azure, dans la zone de texte **Rechercher**, rechercher et sélectionner **Abonnements**.
-1. Dans le page **Abonnements**, sélectionner l’entrée représentant l’abonnement Azure que vous utiliserez pour ce labo. 
-1. Sur la page affichant les propriétés de l’abonnement Azure, sélectionner **Contrôle d’accès (IAM)**.
+1. Dans la page **Abonnements**, sélectionnez l’entrée représentant l’abonnement Azure que vous utiliserez pour ce labo. 
+1. Dans la page affichant les propriétés de l’abonnement Azure, sélectionnez **Contrôle d’accès (IAM)**.
 1. Sur la page **Contrôle d’accès (IAM)**, sélectionner **+ Ajouter** puis, dans le menu déroulant, sélectionner **Ajouter une attribution de rôle**.
 1. Sous l’onglet **Rôle** de la page **Ajouter une attribution** de rôle, dans la liste des **rôles de fonction de travail**, rechercher et sélectionner l’entrée **Rôle de service du Centre Azure pour les solutions SAP**, puis sélectionner **Suivant**.
 1. Sous l’onglet **Membres** de la page **Ajouter une attribution de rôle**, pour **Attribuer l’accès à**, sélectionner **Identité managée**, puis cliquer sur **+ Sélectionner des membres**.
@@ -111,7 +111,7 @@ Dans cette tâche, vous créez une identité managée affectée par l’utilisat
    - pour **Attribuer l’accès à**, sélectionner **Utilisateur, groupe ou principal du service**
    - Cliquer sur **+ Sélection de Membres**.
 1. Dans le volet **Sélectionner des membres**, dans la zone de texte **Sélectionner**, entrer le nom du compte d’utilisateur Microsoft Entra ID que vous avez utilisé pour accéder à l’abonnement Azure que vous utilisez pour ce labo, sélectionnez-le dans la liste des résultats correspondant à votre entrée, puis cliquer sur **Sélectionner**.
-1. De retour sur l’onglet **Membres**, sélectionner **Vérifier + attribuer**.
+1. De retour sous l’onglet **Membres**, sélectionnez **Vérifier + attribuer**.
 1. Sous l’onglet **Vérifier + attribuer**, sélectionnez **Vérifier + attribuer**.
 
 ##### Ajouter une identité : « Opérateur d’identités gérées »
@@ -122,7 +122,7 @@ Dans cette tâche, vous créez une identité managée affectée par l’utilisat
    - pour **Attribuer l’accès à**, sélectionner **Utilisateur, groupe ou principal du service**
    - Cliquer sur **+ Sélection de Membres**.
 1. Dans le volet **Sélectionner des membres**, dans la zone de texte **Sélectionner**, entrer le nom du compte d’utilisateur Microsoft Entra ID que vous avez utilisé pour accéder à l’abonnement Azure que vous utilisez pour ce labo, sélectionnez-le dans la liste des résultats correspondant à votre entrée, puis cliquer sur **Sélectionner**.
-1. De retour sur l’onglet **Membres**, sélectionner **Vérifier + attribuer**.
+1. De retour sous l’onglet **Membres**, sélectionnez **Vérifier + attribuer**.
 1. Sous l’onglet **Vérifier + attribuer**, sélectionnez **Vérifier + attribuer**.
 
 
@@ -134,9 +134,9 @@ Dans cette tâche, vous créez le réseau virtuel Azure qui héberge toutes les 
 
 - bastion
 - application : destinée à l’hébergement des serveurs d’instance SAP et d’application SAP Central Services
-- db : destinée à l’hébergement de la couche base de données SAP
+- db : destiné à l’hébergement de la couche base de données SAP
 
-1. Sur l’ordinateur de labo, dans la fenêtre du navigateur web affichant le portail Azure, dans la zone de texte **Rechercher**, rechercher et sélectionner **Réseaux virtuels**.
+1. Sur l’ordinateur de labo, dans la fenêtre du navigateur web affichant le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Réseaux virtuels**.
 1. Dans la page **Réseaux virtuels**, sélectionnez **+ Créer**.
 1. Sous l’onglet **Informations de base** du panneau **Créer un réseau virtuel**, spécifier les paramètres suivants et sélectionner **Suivant** :
 
@@ -158,12 +158,12 @@ Dans cette tâche, vous créez le réseau virtuel Azure qui héberge toutes les 
 
    |Paramètre|Valeur|
    |---|---|
-   |Espace d’adressage IP|**10.0.0.0/16 (65536 adresses)**|
+   |Espace d’adressage IP|**10.0.0.0/16 (65 536 adresses)**|
 
 1. Dans la liste des sous-réseaux, sélectionner l’icône corbeille pour **supprimer** le **sous-réseau par défaut**.
 
 1. Sélectionnez **+ Ajouter un sous-réseau**.
-1. Dans le volet **Ajouter un sous-réseau**, spécifier les paramètres suivants puis sélectionner **Ajouter** (conservez les valeurs par défaut pour les autres) :
+1. Dans le volet **Ajouter un sous-réseau**, spécifiez les paramètres suivants puis sélectionnez **Ajouter** (conservez les valeurs par défaut des autres paramètres) :
 
    |Paramètre|Valeur|
    |---|---|
@@ -172,7 +172,7 @@ Dans cette tâche, vous créez le réseau virtuel Azure qui héberge toutes les 
    |Taille|**/24 (256 adresses)**|
 
 1. Sélectionnez **+ Ajouter un sous-réseau**.
-1. Dans le volet **Ajouter un sous-réseau**, spécifier les paramètres suivants puis sélectionner **Ajouter** (conservez les valeurs par défaut pour les autres) :
+1. Dans le volet **Ajouter un sous-réseau**, spécifiez les paramètres suivants puis sélectionnez **Ajouter** (conservez les valeurs par défaut des autres paramètres) :
 
    |Paramètre|Valeur|
    |---|---|
@@ -181,7 +181,7 @@ Dans cette tâche, vous créez le réseau virtuel Azure qui héberge toutes les 
    |Taille|**/24 (256 adresses)**|
 
 1. Sélectionnez **+ Ajouter un sous-réseau**.
-1. Dans le volet **Ajouter un sous-réseau**, spécifier les paramètres suivants puis sélectionner **Ajouter** (conservez les valeurs par défaut pour les autres) :
+1. Dans le volet **Ajouter un sous-réseau**, spécifiez les paramètres suivants puis sélectionnez **Ajouter** (conservez les valeurs par défaut des autres paramètres) :
 
    |Paramètre|Valeur|
    |---|---|
@@ -189,7 +189,7 @@ Dans cette tâche, vous créez le réseau virtuel Azure qui héberge toutes les 
    |Adresse de début|**10.0.3.0**|
    |Taille|**/24 (256 adresses)**|
 
-1. Sous l’onglet **Adresses IP**, sélectionner **Vérifier + créer** :
+1. Sous l’onglet **Adresses IP**, sélectionnez **Vérifier + créer** :
 1. Sous l’onglet **Vérifier + créer**, attendre que le processus de validation se termine puis sélectionner **Créer**.
 
    >**Remarque** : Attendez environ 3 minutes que le processus d’approvisionnement continue partiellement avant de passer à la tâche suivante. L’approvisionnement entier peut prendre 25 minutes pour Azure Bastion donc nous **n’attendrons pas**.
@@ -213,8 +213,8 @@ Cette activité correspond à la tâche suivante de cet exercice :
 #### Tâche 1 : Créer une instance virtuelle pour les solutions SAP (VIS)
 
 1. Sur l’ordinateur de labo, dans la fenêtre Microsoft Edge affichant le portail Azure, dans la zone de texte **Rechercher**, rechercher et sélectionner **Solutions Azure Center pour SAP**.
-1. Sur la page **Solutions Azure Center pour SAP \| Vue d’ensemble**, sélectionner **Créer un nouveau système SAP**.
-1. Sous l’onglet **Bases** de la page **Créer des instance virtuelle pour les solutions SAP**, spécifier les paramètres suivants puis sélectionnez **Suivant : Machines virtuelles**
+1. Dans la page **Centre Azure pour les solutions SAP\| Vue d’ensemble**, sélectionnez **Créer un système SAP**.
+1. Sous l’onglet **Informations de base** de la page **Créer une instance virtuelle pour les solutions SAP**, spécifiez les paramètres suivants et sélectionnez **Suivant : Machines virtuelles**
 
    |Paramètre|Valeur|
    |---|---|
@@ -234,43 +234,43 @@ Cette activité correspond à la tâche suivante de cet exercice :
    |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
    |Options d’image du système d’exploitation de base de données|**Utiliser une image de marketplace**|
    |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
-   |Option de transport SAP|**Créer un nouveau répertoire de transport SAP**|
+   |Options de transport SAP|**Créer un répertoire de transport SAP**|
    |Groupe de ressources de transport|**acss-infra-RG**|
    |Nom du compte de stockage|*blank*|
-   |Type d'authentification|**SSH publique**|
+   |Type d'authentification|**SSH public**|
    |Nom d’utilisateur|**contososapadmin**|
    |Source de la clé publique SSH|**Générer une nouvelle paire de clés**|
    |Nom de la paire de clés|**contosovi1key**|
    |Nom de domaine complet SQP|**sap.contoso.com**|
-   |Source d’identité managée|**Utiliser une identité managée affectée par l'utilisateur existante**|
+   |Source d’identité managée|**Utiliser une identité managée affectée par l’utilisateur existante**|
    |Nom de l’identité managée|**acss-infra-MI**|
 
 1. Dans l’onglet **Machines Virtuelles**, spécifier les paramètres suivants :
 
    |Paramètre|Valeur|
    |---|---|
-   |Générer une recommandation basée sur|**SAP Application Performance Standard (SAPS) – Sélectionner cette option pour fournir SAPS pour le niveau d’application et la taille de la mémoire de base de données, puis cliquer sur Générer des recommandations**|
-   |Les SAPS pour la couche Application|**1 000**|
+   |Générer une recommandation basée sur|**SAP Application Performance Standard (SAPS) : sélectionnez cette option pour fournir une valeur SAPS pour la couche Application et la taille de la mémoire de base de données, puis cliquez sur Générer des recommandations**|
+   |SAPS pour la couche Application|**1 000**|
    |Taille de la mémoire pour la base de données (Gio)|**128**|
 
 1. Sélectionnez **Générer une recommandation**.
-1. Passer en revue la taille et le nombre de machines virtuelles pour les machines virtuelles ASCS, application et base de données.
+1. Passez en revue la taille et le nombre de machines virtuelles pour les machines virtuelles ASCS, d’application et de base de données.
 
    >**Remarque** : Si nécessaire, ajuster les tailles recommandées en sélectionnant le lien **Afficher toutes les tailles** pour chaque ensemble de machines virtuelles et en choisissant une autre taille. Par défaut, le type de déploiement distribué avec haute disponibilité, ainsi que la taille de mémoire SAPS et de la mémoire de base de données de la couche Application spécifiée ci-dessus entraînent les recommandations de référence SKU de machine virtuelle minimale suivantes :
    - 1 x Standard_D4ds_v4 pour les machines virtuelles ASCS (4 processeurs virtuels et 16 Gio de mémoire chacun)
    - 1 x Standard_D4ds_v4 pour les machines virtuelles d’application (4 processeurs virtuels et 16 Gio de mémoire chacun)
    - 1 x Standard_E16ds_v5 pour les machines virtuelles de base de données (16 processeurs virtuels et 128 Gio de mémoire chacun)
 
-   >**Remarque** : Si nécessaire, vous pouvez demander une augmentation du quota en sélectionnant le lien **Demande de Quota** pour une référence SKU spécifique des machines virtuelles et en envoyant une demande d’augmentation de quota. Le traitement d’une requête prend généralement quelques minutes.
+   >**Remarque** : Si nécessaire, vous pouvez demander une augmentation du quota en sélectionnant le lien **Demande de Quota** pour une référence SKU spécifique des machines virtuelles et en envoyant une demande d’augmentation de quota. Le traitement d’une demande prend généralement quelques minutes.
 
    >**Remarque** : Le Centre Azure pour les solutions SAP applique l’utilisation des références SKU de machine virtuelle prises en charge par SAP pendant le déploiement.
 
-1. Sous l’onglet **Machines virtuelles**, dans la section **Disques de données**, sélectionner le lien **Afficher et personnaliser la configuration**.
-1. Dans la page de **configuration du disque de base de données**, passer en revue la configuration recommandée sans apporter de modifications, puis sélectionner **Fermer**.
-1. De retour sous l’onglet **Machines virtuelles**, sélectionner **Suivant : Visualisez l’Architecture**.
-1. Sous l’onglet **Visualiser l’architecture**, passer en revue le diagramme illustrant l’architecture recommandée, puis sélectionner **Vérifier + créer**.
-1. Sous l’onglet **Vérifier + créer**, attendre que le processus de validation se termine, sélectionner la case à cochez confirmez que vous disposez d’un quota suffisant disponible dans la région de déploiement pour éviter l’erreur « Quota insuffisant », puis sélectionner **Créer**.
-1. Lorsque vous y êtes invités, dans la fenêtre **Générer une nouvelle paire de clés**, sélectionner **Télécharger la clé privée et créer une ressource**.
+1. Sous l’onglet **Machines virtuelles**, dans la section **Disques de données**, sélectionnez le lien **Afficher et personnaliser la configuration**.
+1. Dans la page **Configuration du disque de base de données**, passez en revue la configuration recommandée sans apporter de modifications, puis sélectionnez **Fermer**.
+1. De retour sous l’onglet **Machines virtuelles**, sélectionnez **Suivant : Visualiser l’architecture**.
+1. Sous l’onglet **Visualiser l’architecture**, passez en revue le diagramme illustrant l’architecture recommandée et sélectionnez **Vérifier + créer**.
+1. Sous l’onglet **Vérifier + créer**, attendez que le processus de validation se termine, cochez la case confirmant que vous disposez d’un quota suffisant dans la région de déploiement pour éviter de rencontrer une erreur « Quota insuffisant », puis sélectionnez **Créer**.
+1. À l’invite, dans la fenêtre **Générer une nouvelle paire de clés**, sélectionnez **Télécharger la clé privée et créer une ressource**.
 
    >**Remarque** : La clé privée requise pour se connecter aux machines virtuelles Azure incluses dans le déploiement sera téléchargée sur l’ordinateur à partir duquel vous exécutez ce labo.
 
@@ -418,7 +418,7 @@ Ces activités correspondent aux tâches suivantes de cet exercice :
 1. Sous l’onglet **Mise en réseau**, accepter l’option par défaut pour **Autoriser l’accès public à partir de tous les réseaux**, puis sélectionner **Vérifier + créer**
 1. Sous l’onglet **Vérifier + créer**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 
-   >**Remarque** : Ne pas attendre pas que le processus d’approvisionnement se termine, mais passer à la tâche suivante. L’approvisionnement peut durer environ deux minutes.
+   >**Remarque** : Ne pas attendre pas que le processus d’approvisionnement se termine, mais passer à la tâche suivante. L’approvisionnement peut durer environ 2 minutes.
 
    >**Remarque** : Vous allez maintenant configurer l’environnement de récupération d’urgence dans la région jumelée dans laquelle vous avez créé le coffre Recovery Services. Cet environnement va inclure un réseau virtuel qui hébergera des réplicas des machines virtuelles Azure actuellement hébergées dans la région primaire où vous avez provisionné Virtual Instance pour SAP. 
 

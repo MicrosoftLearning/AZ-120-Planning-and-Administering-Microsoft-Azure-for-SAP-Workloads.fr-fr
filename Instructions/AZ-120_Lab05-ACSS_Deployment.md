@@ -16,7 +16,7 @@ Toutes les tâches de ce labo sont effectuées à partir du portail Azure
 À la fin de ce lab, vous serez en mesure de :
 
 - Implémenter les prérequis au déploiement des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
-- Déployer l’infrastructure qui hébergera des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
+- Déployer l’infrastructure qui hébergera les charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
 
 ## Exercice 1 : Implémenter les prérequis au déploiement des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
 
@@ -24,7 +24,7 @@ Durée : 60 minutes
 
 Dans cet exercice, vous allez implémenter les prérequis au déploiement des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP. Cela inclut les tâches suivantes :
 - Réponse aux exigences relatives aux processeurs virtuels dans l’abonnement Azure cible
-- Configuration des attributions de rôles RBAC (Contrôle d’accès en fonction du rôle) Azure pour le compte d’utilisateur Microsoft Entra ID qui sera utilisé afin d’effectuer le déploiement
+- Configuration des attributions de rôles RBAC (Contrôle d’accès en fonction du rôle) Azure pour le compte d’utilisateur Microsoft Entra ID qui sera utilisé pour effectuer le déploiement
 - Création d’un compte de stockage associé au Centre Azure pour les solutions SAP utilisé pour le déploiement
 - Création et configuration d’une identité managée affectée par l’utilisateur à utiliser par le Centre Azure pour les solutions SAP pour l’authentification et l’autorisation de son déploiement automatisé
 - Création d’un groupe de sécurité réseau (NSG) à utiliser dans les sous-réseaux du réseau virtuel qui hébergera le déploiement
@@ -36,7 +36,7 @@ Dans cet exercice, vous allez implémenter les prérequis au déploiement des ch
 L’exercice se compose des tâches suivantes :
 
 - Tâche 1 : Répondre aux exigences relatives aux processeurs virtuels dans l’abonnement Azure cible
-- Tâche 2 : Configurer les attributions de rôles RBAC (Contrôle d’accès en fonction du rôle) Azure pour le compte d’utilisateur Microsoft Entra ID qui sera utilisé afin d’effectuer le déploiement
+- Tâche 2 : Configurer les attributions de rôles RBAC (Contrôle d’accès en fonction du rôle) Azure pour le compte d’utilisateur Microsoft Entra ID qui sera utilisé pour effectuer le déploiement
 - Tâche 3 : Créer un compte de stockage associé au Centre Azure pour les solutions SAP utilisé pour le déploiement
 - Tâche 4 : Créer et configurer une identité managée affectée par l’utilisateur à utiliser par le Centre Azure pour les solutions SAP pour l’authentification et l’autorisation de son déploiement automatisé
 - Tâche 5 : Créer un groupe de sécurité réseau (NSG) à utiliser dans les sous-réseaux du réseau virtuel qui hébergera le déploiement
@@ -51,11 +51,11 @@ L’exercice se compose des tâches suivantes :
 
 >**Remarque** : Pour effectuer ce labo (comme décrit), vous aurez besoin d’un abonnement Microsoft Azure avec les quotas de processeurs virtuels qui prennent en charge le déploiement des machines virtuelles suivantes :
 
-- Deux machines virtuelles Standard_E4ds_v4 (quatre processeurs virtuels et 32 Gio de mémoire chacune) ou deux machines virtuelles Standard_D4ds_v4 (quatre processeurs virtuels et 16 Gio de mémoire chacune) pour la couche ASCS
-- Deux machines virtuelles Standard_E4ds_v4 (quatre processeurs virtuels et 32 Gio de mémoire chacune) ou deux machines virtuelles Standard_D4ds_v4 (quatre processeurs virtuels et 16 Gio de mémoire chacune)  pour la couche Application 
-- Deux machines virtuelles Standard_M64ms (64 processeurs virtuels et 1750 Gio de mémoire chacune) pour la couche Base de données
+- 2 machines virtuelles Standard_E4ds_v4 (4 processeurs virtuels et 32 Gio de mémoire chacune) ou 2 machines virtuelles Standard_D4ds_v4 (4 processeurs virtuels et 16 Gio de mémoire chacune) pour la couche ASCS
+- 2 machines virtuelles Standard_E4ds_v4 (4 processeurs virtuels et 32 Gio de mémoire chacune) ou 2 machines virtuelles Standard_D4ds_v4 (4 processeurs virtuels et 16 Gio de mémoire chacune) pour la couche Application 
+- 2 machines virtuelles Standard_M64ms (64 processeurs virtuels et 1750 Gio de mémoire chacune) pour la couche Base de données
 
->**Remarque** : afin de réduire les besoins en processeurs virtuels et en mémoire pour les machines virtuelles de base de données, vous pouvez remplacer la référence SKU de la machine virtuelle par Standard_M32ts (32 processeurs virtuels et 192 Gio de mémoire chacune).
+>**Remarque** : Afin de réduire les besoins en processeurs virtuels et en mémoire pour les machines virtuelles de base de données, vous pouvez remplacer la référence SKU de la machine virtuelle par Standard_M32ts (32 processeurs virtuels et 192 Gio de mémoire chacune).
 
 1. À partir de l’ordinateur de labo, démarrez un navigateur web et accédez au portail Azure à l’adresse `https://portal.azure.com`.
 1. Dans le portail Azure, sélectionnez l’icône **Cloud Shell** et démarrez une session PowerShell dans Cloud Shell. 
@@ -79,14 +79,14 @@ L’exercice se compose des tâches suivantes :
     ```
 
 1. Passez en revue la sortie pour identifier l’utilisation actuelle des processeurs virtuels et la limite des processeurs virtuels. Vérifiez que la différence entre elles est suffisante pour prendre en charge les processeurs virtuels des machines virtuelles Azure que vous allez déployer dans ce labo. Prenez en compte à la fois la quantité totale de processeurs virtuels régionaux et la quantité propre à la famille de machines virtuelles. 
-1. Si le nombre de processeurs virtuels n’est pas suffisant, fermez le volet Cloud Shell, dans le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Quotas**.
+1. Si le nombre de processeurs virtuels n’est pas suffisant, fermez le volet Cloud Shell. Dans le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Quotas**.
 1. Dans la page **Quotas**, sélectionnez **Calcul**.
-1. Dans la page **Quotas \| calcul**, utilisez le filtre **Région** pour sélectionner la région Azure dans laquelle vous envisagez de déployer des ressources dans ce labo.
-1. Dans la colonne **Nom du quota**, recherchez et sélectionnez le nom de la référence SKU de machine virtuelle qui nécessite une augmentation du quota. 
+1. Dans la page **Quotas \| Calcul**, utilisez le filtre **Région** pour sélectionner la région Azure dans laquelle vous envisagez de déployer les ressources dans ce labo.
+1. Dans la colonne **Nom du quota**, recherchez et sélectionnez le nom de la référence SKU de machine virtuelle qui nécessite une augmentation du quota. 
 1. Sur la même ligne, vérifiez l’entrée dans la colonne **Ajustable**. L’étape suivante varie selon que la colonne contient l’entrée **Oui** ou **Non**.
 
-   - Si l’entrée est définie sur **Oui**, sélectionnez l’icône **Ajustement de la demande**, dans **Nouvelle demande de quota**. Dans la zone de texte **Nouvelle limite**, entrez la nouvelle limite de quota, puis sélectionnez **Envoyer**.
-   - Si l’entrée est définie sur **Non**, sélectionnez l’icône **Demander l’accès ou obtenir des recommandations** et, dans le volet **Recommandations de quota**, sélectionnez l’option **Contacter le service clientèle**, puis **Suivant**. 
+   - Si l’entrée est définie sur **Oui**, sélectionnez l’icône **Ajustement de la demande**. Dans **Nouvelle demande de quota**, dans la zone de texte **Nouvelle limite**, entrez la nouvelle limite de quota, puis sélectionnez **Envoyer**.
+   - Si l’entrée est définie sur **Non**, sélectionnez l’icône **Demander l’accès ou obtenir des recommandations**. Dans le volet **Recommandations de quota**, sélectionnez l’option **Contacter le service clientèle**, puis **Suivant**. 
 1. Sous l’onglet **Description du problème** de la page **Nouvelle demande de support**, spécifiez les paramètres suivants, puis sélectionnez **Suivant** :
 
     |Paramètre|Valeur|
@@ -97,24 +97,24 @@ L’exercice se compose des tâches suivantes :
     |Type de quota|**Augmentations de la limite d’abonnement de calcul/machine virtuelle (cœurs/processeurs virtuels)**|
 
 1. Sous l’onglet **Détails supplémentaires**, sélectionnez **Entrer les détails**.
-1. Sous l’onglet **Détails du quota**, dans la liste déroulante **Modèle de déploiement**, sélectionnez **Resource Manager**, dans la liste déroulante **Emplacements**, sélectionnez la région Azure cible, dans la liste déroulante **Quotas**, sélectionnez la série de machines virtuelles Azure dont vous avez besoin pour augmenter les limites de quota, dans la zone de texte **Nouvelle limite**, entrez la nouvelle limite de quota, puis sélectionnez **Enregistrer et Continuer**.
+1. Sous l’onglet **Détails du quota**, dans la liste déroulante **Modèle de déploiement**, sélectionnez **Resource Manager**. Dans la liste déroulante **Localisations**, sélectionnez la région Azure cible. Dans la liste déroulante **Quotas**, sélectionnez la série de machines virtuelles Azure dont vous devez augmenter les limites de quota. Dans la zone de texte **Nouvelle limite**, entrez la nouvelle limite de quota, puis sélectionnez **Enregistrer et Continuer**.
 1. De retour sous l’onglet **Détails supplémentaires**, sous l’onglet **Informations de diagnostic avancées**, sélectionnez **Oui (recommandé)**.
 1. Dans la section **Méthode de support**, sélectionnez **E-mail** ou **Téléphone** comme méthode de contact préférée, puis sélectionnez **Suivant**.
 1. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.
 
     > **Remarque** : Attendez que la demande d’augmentation des limites de quota soit terminée avant de passer à la tâche suivante.
 
-### Tâche 2 : Configurer les attributions de rôles RBAC (Contrôle d’accès en fonction du rôle) Azure pour le compte d’utilisateur Microsoft Entra ID qui sera utilisé afin d’effectuer le déploiement
+### Tâche 2 : Configurer les attributions de rôles RBAC (Contrôle d’accès en fonction du rôle) Azure pour le compte d’utilisateur Microsoft Entra ID qui sera utilisé pour effectuer le déploiement
 
 1. Sur l’ordinateur de labo, démarrez Microsoft Edge et accédez au portail Azure à l’adresse `https://portal.azure.com`.
 1. Lorsque vous êtes invité à vous authentifier, connectez-vous à l’aide des informations d’identification Microsoft Entra ID avec le rôle Propriétaire dans l’abonnement Azure que vous utiliserez pour ce labo. 
 1. Dans le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Abonnements**.
 1. Dans la page **Abonnements**, sélectionnez l’entrée représentant l’abonnement Azure que vous utiliserez pour ce labo. 
 1. Dans la page affichant les propriétés de l’abonnement Azure, sélectionnez **Contrôle d’accès (IAM)**.
-1. Dans la page **Contrôle d’accès (IAM)**, sélectionnez **+ Ajouter** puis, dans le menu déroulant, sélectionnez **Ajouter une attribution de rôle**.
-1. Sous l’onglet **Rôle** de la page **Ajouter une attribution** de rôle, dans la liste des **rôles de fonction de travail**, recherchez et sélectionnez l’entrée **Administrateur de solutions Centre Azure pour les solutions SAP**, puis sélectionnez **Suivant**.
+1. Dans la page **Contrôle d’accès (IAM)**, sélectionnez **+ Ajouter**, puis dans le menu déroulant, sélectionnez **Ajouter une attribution de rôle**.
+1. Sous l’onglet **Rôle** de la page **Ajouter une attribution de rôle**, dans la liste des **rôles de fonction de travail**, recherchez et sélectionnez l’entrée **Administrateur Centre Azure pour les solutions SAP**, puis sélectionnez **Suivant**.
 1. Sous l’onglet **Membres** de la page **Ajouter une attribution de rôle**, cliquez sur **+ Sélectionner des membres**. 
-1. Dans le volet **Sélectionner des membres**, dans la zone de texte **Sélectionner**, entrez le nom du compte d’utilisateur Microsoft Entra ID que vous avez utilisé pour accéder à l’abonnement Azure que vous utilisez pour ce labo, sélectionnez-le dans la liste des résultats correspondant à votre entrée, puis cliquez sur **Sélectionner**.
+1. Dans le volet **Sélectionner des membres**, dans la zone de texte **Sélectionner**, entrez le nom du compte d’utilisateur Microsoft Entra ID que vous avez utilisé pour accéder à l’abonnement Azure que vous utilisez pour ce labo. Sélectionnez-le dans la liste des résultats correspondant à votre entrée, puis cliquez sur **Sélectionner**.
 1. De retour sous l’onglet **Membres**, sélectionnez **Vérifier + attribuer**.
 1. Sous l’onglet **Vérifier + attribuer**, sélectionnez **Vérifier + attribuer**.
 1. Répétez les six étapes précédentes pour attribuer le rôle **Opérateur d’identité managée** au compte d’utilisateur que vous utilisez pour ce labo.
@@ -135,17 +135,17 @@ L’exercice se compose des tâches suivantes :
     |Redondance|**Stockage géo-redondant (GRS)**|
     |Permettre l’accès en lecture aux données en cas d’indisponibilité régionale|Désactivé|
 
-1. Sous l’onglet **Avancé**, passez en revue les options disponibles, acceptez les valeurs par défaut, puis sélectionnez **Suivant : Mise en réseau >**.
+1. Sous l’onglet **Avancé**, passez en revue les options disponibles, acceptez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau >**.
 1. Sous l’onglet **Mise en réseau**, passez en revue les options disponibles, vérifiez que l’option **Activer l’accès public à partir de tous les réseaux** est activée et sélectionnez **Vérifier**.
 1. Sous l’onglet **Vérifier**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 
-    >**Remarque** : N’attendez pas la fin de l’approvisionnement du compte Stockage Azure. Au lieu de cela, passez à la tâche suivante. L’approvisionnement peut durer environ deux minutes.
+    >**Remarque** : N’attendez pas la fin de l’approvisionnement du compte Stockage Azure. Au lieu de cela, passez à la tâche suivante. L’approvisionnement peut durer environ 2 minutes.
 
 ### Tâche 4 : Créer et configurer une identité managée affectée par l’utilisateur à utiliser par le Centre Azure pour les solutions SAP pour l’authentification et l’autorisation de son déploiement automatisé
 
 1. Sur l’ordinateur de labo, dans la fenêtre Microsoft Edge affichant le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Identités managées**.
 1. Dans la page **Identités managés**, sélectionnez **+ Créer**.
-1. Sous l’onglet **Informations de base** de la page **Créer une identité managée affectée par l’utilisateur**, spécifiez les paramètres suivants, puis sélectionnez **Vérifier + Créer** :
+1. Sous l’onglet **De base** de la page **Créer une identité managée affectée par l’utilisateur**, spécifiez les paramètres suivants, puis sélectionnez **Vérifier + Créer** :
 
     |Paramètre|Valeur|
     |---|---|
@@ -156,7 +156,7 @@ L’exercice se compose des tâches suivantes :
 
 1. Sous l’onglet **Vérifier**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 
-    >**Remarque** : Attendez la fin de l’approvisionnement de l’identité managée affectée par l’utilisateur. Cela devrait prendre quelques secondes.
+    >**Remarque** : Attendez la fin de l’approvisionnement de l’identité managée affectée par l’utilisateur. Cela devrait prendre juste quelques secondes.
 
 1. Dans le portail Azure, accédez à la page **Identités managées** et sélectionnez l’entrée **Contoso-MSI**.
 1. Dans la page **Contoso-MSI**, sélectionnez **Attributions de rôles Azure**.
@@ -194,7 +194,7 @@ L’exercice se compose des tâches suivantes :
 
 1. Sous l’onglet **Vérifier + créer**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 
-    >**Remarque** : Par défaut, les règles intégrées des groupes de sécurité réseau autorisent tout le trafic sortant, tout le trafic au sein du même réseau virtuel ainsi que tout le trafic entre les réseaux virtuels appairés. Cela suffit pour terminer correctement le labo. En fonction de vos exigences de sécurité, vous pouvez envisager de bloquer une partie de ce trafic. Dans ce cas, reportez-vous aux conseils inclus dans la documentation Microsoft Learn [Préparer le réseau pour le déploiement d’infrastructure](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/prepare-network).
+    >**Remarque** : Par défaut, les règles intégrées des groupes de sécurité réseau autorisent tout le trafic sortant, tout le trafic au sein du même réseau virtuel ainsi que tout le trafic entre les réseaux virtuels appairés. Cela suffit pour pouvoir suivre le labo. En fonction de vos exigences de sécurité, vous pouvez envisager de bloquer une partie de ce trafic. Dans ce cas, reportez-vous aux conseils dans la documentation Microsoft Learn [Préparer le réseau pour le déploiement d’infrastructure](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/prepare-network).
 
 ### Tâche 6 : Créer des tables de routage à utiliser dans les sous-réseaux du réseau virtuel qui hébergera le déploiement
 
@@ -216,7 +216,7 @@ L’exercice se compose des tâches suivantes :
 
 1. Sur l’ordinateur de labo, dans la fenêtre Microsoft Edge affichant le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Réseaux virtuels**. 
 1. Dans la page **Réseaux virtuels**, sélectionnez **+ Créer**.
-1. Sous l’onglet **Informations de base** de la page **Créer un réseau virtuel**, spécifiez les paramètres suivants et sélectionnez **Suivant** :
+1. Sous l’onglet **Informations de base** du panneau **Créer un réseau virtuel**, spécifier les paramètres suivants et sélectionner **Suivant** :
 
     |Paramètre|Valeur|
     |---|---|
@@ -227,15 +227,15 @@ L’exercice se compose des tâches suivantes :
 
 1. Sous l’onglet **Sécurité**, acceptez les paramètres par défaut et sélectionnez **Suivant**.
 
-    >**Remarque** : Vous pourriez approvisionner à ce stade Azure Bastion et Pare-feu Azure, mais vous les approvisionnerez séparément une fois le réseau virtuel créé.
+    >**Remarque** : Vous pourriez approvisionner Azure Bastion et le Pare-feu Azure à ce stade, mais vous les approvisionnerez séparément une fois le réseau virtuel créé.
 
-1. Sous l’onglet **Adresses IP**, spécifiez les paramètres suivants, puis sélectionnez **Vérifier + créer** :
+1. Sous l’onglet **Adresses IP**, spécifiez les paramètres suivants et sélectionnez **Vérifier + créer** :
 
     |Paramètre|Valeur|
     |---|---|
     |Espace d’adressage IP|**10.5.0.0/16 (65 536 adresses)**|
 
-    >**Remarque** : Supprimez toute entrée de sous-réseau prédéfinie. Vous ajouterez des sous-réseaux une fois le réseau virtuel créé.
+    >**Remarque** : Supprimez toutes les entrées de sous-réseau prédéfinies. Vous ajouterez des sous-réseaux une fois le réseau virtuel créé.
 
 1. Sous l’onglet **Vérifier + créer**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 1. Revenez à la page **Réseaux virtuels** et sélectionnez l’entrée **CONTOSO-VNET**. 
@@ -278,7 +278,7 @@ L’exercice se compose des tâches suivantes :
 
 ### Tâche 8 : Déployer le Pare-feu Azure dans le réseau virtuel qui hébergera le déploiement
 
->**Remarque** : Avant de déployer une instance de Pare-feu Azure, vous allez d’abord créer une stratégie de pare-feu et une adresse IP publique qui sera utilisée par l’instance.
+>**Remarque** : Avant de déployer une instance Pare-feu Azure, vous allez d’abord créer une stratégie de pare-feu et une adresse IP publique qui sera utilisée par l’instance.
 
 1. Sur l’ordinateur de labo, dans la fenêtre Microsoft Edge affichant le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Stratégies de pare-feu**.
 1. Dans la page **Stratégies de pare-feu**, sélectionnez **+ Créer**.
@@ -363,11 +363,11 @@ L’exercice se compose des tâches suivantes :
 1. Sous l’onglet **Renseignement sur les menaces**, passez en revue les paramètres disponibles sans apporter de modifications, puis sélectionnez **Vérifier + créer**.
 1. Sous l’onglet **Vérifier + créer**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 
-    >**Remarque** : Attendez la fin de l’approvisionnement de la stratégie de pare-feu. L’approvisionnement prend environ une minute.
+    >**Remarque** : Attendez la fin de l’approvisionnement de la stratégie de pare-feu. L’approvisionnement devrait prendre environ 1 minute.
 
 1. Sur l’ordinateur de labo, dans la fenêtre Microsoft Edge affichant le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Adresses IP publiques**.
 1. Dans la page **Adresses IP publiques**, sélectionnez **+ Créer**.
-1. Sous l’onglet **Informations de base** de la page **Créer une adresse IP publique**, spécifiez les paramètres suivants, puis sélectionnez **Vérifier + créer** :
+1. Sous l’onglet **Informations de base** de la page **Créer une adresse IP publique**, spécifiez les paramètres suivants et sélectionnez **Vérifier + créer** :
 
     |Paramètre|Valeur|
     |---|---|
@@ -385,11 +385,11 @@ L’exercice se compose des tâches suivantes :
 
 1. Sous l’onglet **Vérifier + créer**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 
-    >**Remarque** : Attendez la fin de l’approvisionnement de l’adresse IP publique. L’approvisionnement doit prendre quelques secondes.
+    >**Remarque** : Attendez la fin de l’approvisionnement de l’adresse IP publique. L’approvisionnement devrait prendre quelques secondes.
 
 1. Sur l’ordinateur de labo, dans la fenêtre Microsoft Edge affichant le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Pare-feu**.
 1. Dans la page **Pare-feu**, sélectionnez **+ Créer**.
-1. Sous l’onglet **Informations de base** de la page **Créer un pare-feu**, spécifiez les paramètres suivants, puis sélectionnez **Vérifier + créer** :
+1. Sous l’onglet **Informations de base** de la page **Créer un pare-feu**, spécifiez les paramètres suivants et sélectionnez **Vérifier + créer** :
 
     |Paramètre|Valeur|
     |---|---|
@@ -406,19 +406,19 @@ L’exercice se compose des tâches suivantes :
     |Adresse IP publique|**contoso-firewall-pip**|
     |Tunneling forcé|**Disabled**|
 
-    >**Remarque** : Attendez la fin de l’approvisionnement du Pare-feu Azure. L’approvisionnement peut durer environ trois minutes.
+    >**Remarque** : Attendez la fin de l’approvisionnement du Pare-feu Azure. L’approvisionnement peut prendre environ 3 minutes.
 
 1. Dans le portail Azure, revenez à la page **Pare-feu**.
 1. Dans la page **Pare-feu**, sélectionnez l’entrée **contoso-firewall**.
-1. Dans la page **contoso-firewall**, notez l’entrée **IP privée** définie sur **10.5.3.4** représentant l’adresse IP privée de l’instance de Pare-feu Azure.
+1. Dans la page **contoso-firewall**, notez l’entrée **IP privée** définie sur **10.5.3.4** représentant l’adresse IP privée de l’instance Pare-feu Azure.
 
-    >**Remarque** : Pour que le trafic réseau soit routé via Pare-feu Azure, vous devez ajouter des routes définies par l’utilisateur aux tables de routage associées à l’application et aux sous-réseaux de base de données du réseau virtuel qui hébergera le déploiement SAP.
+    >**Remarque** : Pour que le trafic réseau soit routé via le Pare-feu Azure, vous devez ajouter des routes définies par l’utilisateur aux tables de routage associées à l’application et aux sous-réseaux de base de données du réseau virtuel qui hébergera le déploiement SAP.
 
 1. Dans le portail Azure, dans la zone de texte **Rechercher**, recherchez et sélectionnez **Tables de routage**.
 1. Dans la page **Tables de routage**, sélectionnez l’entrée **ACSS-ROUTE**.
 1. Dans la page **ACSS-ROUTE**, sélectionnez **Routes**.
 1. Dans la page **ACSS-ROUTE \| Routes**, sélectionnez **+ Ajouter**.
-1. Dans le volet **Ajouter une route**, spécifiez les paramètres suivants, puis sélectionnez **Ajouter** :
+1. Dans le volet **Ajouter une route**, spécifiez les paramètres suivants et sélectionnez **Ajouter** :
 
     |Paramètre|Valeur|
     |---|---|
@@ -451,9 +451,9 @@ L’exercice se compose des tâches suivantes :
 1. Sous l’onglet **Avancé**, passez en revue les paramètres disponibles sans apporter de modifications, puis sélectionnez **Suivant : Vérifier + créer >**
 1. Sous l’onglet **Vérifier + créer**, attendez que le processus de validation se termine et sélectionnez **Créer**.
 
-    >**Remarque** : N’attendez pas la fin de l’approvisionnement de l’hôte Bastion. Au lieu de cela, passez à la tâche suivante. L’approvisionnement peut durer environ 15 minutes.
+    >**Remarque** : N’attendez pas la fin de l’approvisionnement de l’hôte Bastion. Au lieu de cela, passez à la tâche suivante. L’approvisionnement peut prendre environ 15 minutes.
 
-## Exercice 2 : Déployer l’infrastructure qui hébergera des charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
+## Exercice 2 : Déployer l’infrastructure qui hébergera les charges de travail SAP dans Azure à l’aide du Centre Azure pour les solutions SAP
 
 Durée : 40 minutes
 
@@ -487,8 +487,8 @@ L’exercice se compose des tâches suivantes :
     |Réseau virtuel|**CONTOSO-VNET**|
     |Sous-réseau d’application|**app (10.5.0.0/24)**|
     |Sous-réseau de base de données|**db (10.5.2.0/24)**|
-    |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
-    |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
+    |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2, version la plus récente**|
+    |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
     |Options de transport SAP|**Créer un répertoire de transport SAP**|
     |Groupe de ressources de transport|**ACSS-DEMO**|
     |Nom du compte de stockage|Aucune entrée|
@@ -511,14 +511,14 @@ L’exercice se compose des tâches suivantes :
 1. Sélectionnez **Générer une recommandation**.
 1. Passez en revue la taille et le nombre de machines virtuelles pour les machines virtuelles ASCS, d’application et de base de données. 
 
-    >**Remarque** : Si nécessaire, ajustez les tailles recommandées en sélectionnant le lien **Afficher toutes les tailles** pour chaque ensemble de machines virtuelles et en choisissant une autre taille. Par défaut, le type de déploiement distribué avec haute disponibilité ainsi que la valeur SAPS de couche Application et la taille de mémoire de base de données spécifiées ci-dessus génèrent les recommandations de référence SKU de machine virtuelle suivantes :
-    - Deux Standard_E4ds_v4 pour les machines virtuelles ASCS (quatre processeurs virtuels et 32 Gio de mémoire chacune)
-    - Deux Standard_E4ds_v4 pour les machines virtuelles d’application (quatre processeurs virtuels et 32 Gio de mémoire chacune)
-    - Deux Standard_M64ms pour les machines virtuelles de base de données (64 processeurs virtuels et 1750 Gio de mémoire chacune)
+    >**Remarque** : Si nécessaire, adaptez les tailles recommandées en sélectionnant le lien **Voir toutes les tailles** pour chaque ensemble de machines virtuelles et en choisissant une autre taille. Par défaut, le type de déploiement distribué avec haute disponibilité ainsi que la valeur SAPS de couche Application et la taille de mémoire de base de données spécifiées ci-dessus aboutissent aux recommandations de référence SKU de machine virtuelle suivantes :
+    - 2 machines virtuelles Standard_E4ds_v4 pour la couche ASCS (4 processeurs virtuels et 32 Gio de mémoire chacune)
+    - 2 machines virtuelles Standard_E4ds_v4 pour la couche Application (4 processeurs virtuels et 32 Gio de mémoire chacune)
+    - 2 machines virtuelles Standard_M64ms pour la couche Base de données (64 processeurs virtuels et 1750 Gio de mémoire chacune)
 
-    >**Remarque** : Afin de réduire les besoins en processeurs virtuels et en mémoire pour les machines virtuelles de base de données, vous pouvez remplacer la référence SKU de la machine virtuelle par Standard_M32ts (32 processeurs virtuels et 192 Gio de mémoire chacune).
+    >**Remarque** : Afin de réduire les besoins en processeurs virtuels et en mémoire pour les machines virtuelles de base de données, vous pouvez remplacer la référence SKU de machine virtuelle par Standard_M32ts (32 processeurs virtuels et 192 Gio de mémoire chacune).
 
-    >**Remarque** : Si nécessaire, vous pouvez demander une augmentation du quota en sélectionnant le lien **Demander un quota** pour une référence SKU de machine virtuelle spécifique et en envoyant une demande d’augmentation de quota. Le traitement d’une demande prend généralement quelques minutes.
+    >**Remarque** : Si nécessaire, vous pouvez demander une augmentation du quota en sélectionnant le lien **Demander un quota** pour une référence SKU spécifique des machines virtuelles et en faisant une demande d’augmentation de quota. Le traitement d’une demande prend généralement quelques minutes.
 
     >**Remarque** : Le Centre Azure pour les solutions SAP applique l’utilisation des références SKU de machine virtuelle prises en charge par SAP pendant le déploiement.
 

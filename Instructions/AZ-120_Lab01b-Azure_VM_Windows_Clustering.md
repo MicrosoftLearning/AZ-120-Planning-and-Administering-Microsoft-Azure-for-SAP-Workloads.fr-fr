@@ -127,7 +127,7 @@ Dans cet exercice, vous allez déployer des composants de calcul d’infrastruct
     
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure*  |
+    | **Abonnement** | *nom de votre abonnement Azure*  |
     | **Groupe de ressources** | *le nom d’un nouveau groupe de ressources* **az12001b-cl-RG** |
     | **Nom de la machine virtuelle** | **az12001b-cl-vm0** |
     | **Région** | *la même région Azure que celle où vous avez déployé les machines virtuelles Azure dans la tâche précédente* |
@@ -162,7 +162,7 @@ Dans cet exercice, vous allez déployer des composants de calcul d’infrastruct
      
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure*  |
+    | **Abonnement** | *nom de votre abonnement Azure*  |
     | **Groupe de ressources** | *le nom du groupe de ressources que vous avez utilisé lors du déploiement du premier **Windows Server 2022 Datacenter : Machine virtuelle Azure, Azure Edition - Gen2** dans cette tâche* |
     | **Nom de la machine virtuelle** | **az12001b-cl-vm1** |
     | **Région** | *la même région Azure que celle où vous avez déployé le premier **Centre de données Windows Server 2022 : Machine virtuelle Azure, Azure Edition - Gen2** dans cette tâche* |
@@ -387,7 +387,7 @@ Durée : 40 minutes
     
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure* |
+    | **Abonnement** | *nom de votre abonnement Azure* |
     | **Groupe de ressources** | *le nom du groupe de ressources contenant la paire de machines virtuelles ** Azure Windows Server 2022 Datacenter** que vous avez provisionnées dans l’exercice précédent* |
     | **Nom du compte de stockage** | *chaque nom unique composé de 3 à 24 lettres et chiffres* |
     | **Lieu** | *la même région Azure que celle où vous avez déployé les machines virtuelles Azure dans l’exercice précédent* |
@@ -524,7 +524,7 @@ Dans cet exercice, vous allez implémenter des équilibreurs de charge Azure pou
     
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure* |
+    | **Abonnement** | *nom de votre abonnement Azure* |
     | **Groupe de ressources** | *le nom du groupe de ressources contenant la paire de machines virtuelles ** Azure Windows Server 2022 Datacenter** que vous avez provisionnées dans le premier exercice de ce labo* |
     | **Nom** | **az12001b-cl-lb0** |
     | **Région** | la même région Azure que celle où vous avez déployé les machines virtuelles Azure dans le premier exercice de ce labo |
@@ -673,7 +673,7 @@ Dans cet exercice, vous allez implémenter des équilibreurs de charge Azure pou
      
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure*  |
+    | **Abonnement** | *nom de votre abonnement Azure*  |
     | **Groupe de ressources** | *le nom du groupe de ressources contenant la paire de **Centre de données Windows Server 2022 : Machines virtuelles Azure, Azure Edition - Gen2** que vous avez approvisionnées dans le premier exercice de ce labo* |
     | **Nom de la machine virtuelle** | **az12001b-vm2** |
     | **Région** | *la même région Azure que celle où vous avez déployé les machines virtuelles Azure dans le premier exercice de ce labo* |
@@ -699,7 +699,7 @@ Dans cet exercice, vous allez implémenter des équilibreurs de charge Azure pou
     | **Se connecter avec Azure AD** | **Désactivé** |
     | **Activer l’arrêt automatique** | **Désactivé** |
     | **Diagnostics de démarrage** | **Désactiver** |
-    | **Activer le diagnostic du système d’exploitation invité** | **Désactivé** |
+    | **Activer les diagnostics du système d’exploitation invité** | **Désactivé** |
     | **Extensions** | *Aucun* |
     | **Balises** | *Aucun* |
 
@@ -715,7 +715,7 @@ Dans cet exercice, vous allez implémenter des équilibreurs de charge Azure pou
 
 Durée : 10 minutes
 
-Dans cet exercice, vous allez supprimer les ressources provisionnées dans ce labo.
+Dans cet exercice, vous allez supprimer les ressources approvisionnées dans ce labo.
 
 #### Tâche 1 : Ouvrir Cloud Shell
 
@@ -745,4 +745,4 @@ Dans cet exercice, vous allez supprimer les ressources provisionnées dans ce la
 
 1. Fermez le volet Cloud Shell.
 
-> **Result** : Une fois que vous avez terminé cet exercice, vous avez supprimé les ressources utilisées dans ce labo.
+> **Result** : Une fois cet exercice terminé, vous avez supprimé les ressources utilisées dans ce labo.

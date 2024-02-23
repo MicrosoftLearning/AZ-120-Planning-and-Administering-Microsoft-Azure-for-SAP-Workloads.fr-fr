@@ -140,7 +140,7 @@ Dans cet exercice, vous allez déployer des composants de calcul d’infrastruct
 
 1. Dans le portail Azure, démarrez une session PowerShell dans Cloud Shell. 
 
-    > **Remarque** : Si c’est la première fois que vous lancez Cloud Shell dans l’abonnement Azure actuel, vous êtes invité à créer un partage de fichiers Azure pour conserver les fichiers Cloud Shell. Dans ce cas, acceptez les valeurs par défaut, ce qui entraîne la création d’un compte de stockage dans un groupe de ressources généré automatiquement.
+    > **Remarque** : Si c’est la première fois que vous lancez Cloud Shell dans l’abonnement Azure actuel, vous êtes invité à créer un partage de fichiers Azure pour conserver les fichiers Cloud Shell. Dans ce cas, acceptez les valeurs par défaut afin de créer un compte de stockage dans un groupe de ressources généré automatiquement.
 
 1. Dans le volet Cloud Shell, exécutez la commande suivante pour définir la valeur de la variable `$resourceGroupName` sur le nom du groupe de ressources contenant les ressources que vous avez provisionnées dans la tâche précédente :
 
@@ -184,7 +184,7 @@ Dans cet exercice, vous allez déployer des composants de calcul d’infrastruct
     
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure*  |
+    | **Abonnement** | *nom de votre abonnement Azure*  |
     | **Groupe de ressources** | *le nom d’un nouveau groupe de ressources* **az12003b-23-RG** |
     | **Lieu** | *la même région Azure que celle que vous avez spécifiée dans la première tâche de cet exercice* |
     | **ID du système SAP** | **I20** |
@@ -218,7 +218,7 @@ Dans cette tâche, vous allez déployer le cluster SOFS (Scale-out File Server) 
     
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure*  |
+    | **Abonnement** | *nom de votre abonnement Azure*  |
     | **Groupe de ressources** | *le nom d’un nouveau groupe de ressources* **az12003b-s2d-RG** |
     | **Région** | *la même région Azure que celle où vous avez déployé les machines virtuelles Azure dans les tâches précédentes de cet exercice* |
     | **Préfixe de nom** | **i20** |
@@ -282,12 +282,12 @@ Dans cette tâche, vous allez déployer le cluster SOFS (Scale-out File Server) 
     
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure*  |
+    | **Abonnement** | *nom de votre abonnement Azure*  |
     | **Groupe de ressources** | *le nom d’un nouveau groupe de ressources* **az12003b-dmz-RG** |
     | **Nom de la machine virtuelle** | **az12003b-vm0** |
-    | **Région** | *la même région Azure que celle où vous avez déployé les machines virtuelles Azure dans les tâches précédentes de cet exercice* |
+    | **Région** | *même région Azure que celle dans laquelle vous avez déployé les machines virtuelles Azure dans les tâches précédentes de cet exercice* |
     | **Options de disponibilité** | **Aucune redondance de l’infrastructure requise** |
-    | **Image** | *Sélectionnez* **Windows Server 2019 Datacenter - Gen2** |
+    | **Image** | *sélectionnez* **Windows Server 2019 Datacenter - Gen2** |
     | **Taille** | **D2s_v3 standard** |
     | **Nom d’utilisateur** | **Étudiant** |
     | **Mot de passe** | *le même mot de passe que celui que vous avez spécifié précédemment dans ce labo* |
@@ -309,7 +309,7 @@ Dans cette tâche, vous allez déployer le cluster SOFS (Scale-out File Server) 
     | **Activer l’arrêt automatique** | **Désactivé** |
     | **Options d’orchestration des patchs** | **Mises à jour manuelles** |
     | **Diagnostics de démarrage** | **Désactiver** |
-    | **Activer le diagnostic du système d’exploitation invité** | **Désactivé** |
+    | **Activer les diagnostics du système d’exploitation invité** | **Désactivé** |
     | **Extensions** | *Aucun* |
     | **Balises** | *Aucun* |
    
@@ -397,9 +397,9 @@ Dans cet exercice, vous allez configurer le système d’exploitation de machine
     
     | Paramètre | Valeur |
     |   --    |  --   |
-    | **Abonnement** | *le nom de votre abonnement Azure* |
+    | **Abonnement** | *nom de votre abonnement Azure* |
     | **Groupe de ressources** | *le nom du groupe de ressources dans lequel vous avez déployé les machines virtuelles Azure qui vont héberger un déploiement SAP NetWeaver à haute disponibilité* |
-    | **Nom du compte de stockage** | *un nom unique composé de 3 à 24 lettres et chiffres* |
+    | **Nom du compte de stockage** | *chaque nom unique composé de 3 à 24 lettres et chiffres* |
     | **Lieu** | *la même région Azure que celle où vous avez déployé les machines virtuelles Azure dans l’exercice précédent* |
     | **Niveau de performance** | **Standard** |
     | **Redondance** | **Stockage localement redondant (LRS)** |
@@ -444,7 +444,7 @@ Dans cet exercice, vous allez configurer le système d’exploitation de machine
 
 1. Sous l’onglet **Autorisations** de la fenêtre **Paramètres de sécurité avancés pour Clusters**, cliquez sur **Ajouter**.
 
-1. Dans la fenêtre **Entrée d’autorisation pour Clusters**, cliquez sur **Sélectionner le principal**.
+1. Dans la fenêtre **Entrée d’autorisation pour Clusters**, cliquez sur **Sélectionner le principal**
 
 1. Dans la boîte de dialogue **Sélectionner l’utilisateur, le compte de service ou le groupe**, cliquez sur **Types d’objets**, cochez la case en regard de l’entrée **Ordinateurs**, puis cliquez sur **OK**. 
 
@@ -625,7 +625,7 @@ Dans cette tâche, vous allez définir des autorisations de niveau partage sur l
 
 Durée : 10 minutes
 
-Dans cet exercice, vous allez supprimer les ressources provisionnées dans ce labo.
+Dans cet exercice, vous allez supprimer les ressources approvisionnées dans ce labo.
 
 #### Tâche 1 : Ouvrir Cloud Shell
 
@@ -647,7 +647,7 @@ Dans cet exercice, vous allez supprimer les ressources provisionnées dans ce la
 
 #### Tâche 2 : Supprimer des groupes de ressources
 
-1. Dans le volet Cloud Shell, exécutez la commande suivante pour supprimer les groupes de ressources que vous avez créés dans ce labo :
+1. Dans le volet Cloud Shell, exécutez la commande suivante pour supprimer les groupes de ressources que vous avez créés dans ce labo
 
     ```
     Get-AzResourceGroup | Where-Object {$_.ResourceGroupName -like "$resourceGroupNamePrefix*"} | Remove-AzResourceGroup -Force  
