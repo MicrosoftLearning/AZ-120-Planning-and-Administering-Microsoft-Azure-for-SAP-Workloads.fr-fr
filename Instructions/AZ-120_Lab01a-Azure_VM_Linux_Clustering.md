@@ -260,9 +260,9 @@ Dans cet exercice, vous allez déployer des composants de calcul d’infrastruct
 
 #### Tâche 3 : Provisionner Azure Bastion 
 
-> **Remarque** : Azure Bastion autorise la connexion aux machines virtuelles Azure sans les points de terminaison publics que vous avez déployés dans la tâche précédente de cet exercice, tout en fournissant une protection contre les attaques par force brute qui ciblent les informations d’identification au niveau du système d’exploitation.
+> **Remarque** : Azure Bastion autorise la connexion aux machines virtuelles Azure (que vous avez déployées dans la tâche précédente de cet exercice) sans utiliser de points de terminaison publics, tout en fournissant une protection contre les attaques par force brute qui ciblent les informations d’identification au niveau du système d’exploitation.
 
-> **Remarque** : Vérifiez que votre navigateur dispose de la fonctionnalité de fenêtre contextuelle activée.
+> **Remarque** : Pout utiliser Azure Bastion, vérifiez que la fonctionnalité de fenêtre contextuelle de votre navigateur est activée.
 
 1. Dans la fenêtre du navigateur affichant le Portail Azure, ouvrez un autre onglet, et, dans l’onglet du navigateur, accédez au [**Portail Azure**](https://portal.azure.com).
 1. Dans le portail Azure, ouvrez le volet **Cloud Shell** en sélectionnant l’icône de barre d’outils juste à droite de la zone de texte de recherche.
@@ -312,7 +312,7 @@ Dans cet exercice, vous allez configurer le système d’exploitation et le stoc
 
 1. À partir de votre ordinateur de labo, dans le portail Azure, recherchez et sélectionnez **Machines virtuelles**, puis dans le panneau **Machines virtuelles**, sélectionnez l’entrée **az12001a-vm0**. Le panneau **az12001a-vm0** s’ouvre.
 
-1. Dans le panneau **az12001a-vm0**, sélectionnez **Se connecter**. Dans le menu déroulant, sélectionnez **Se connecter via Bastion**. Sous l’onglet **Bastion** d’**az12001a-vm0**, laissez le **Type d’authentification** défini sur **Mot de passe de la machine virtuelle**, indiquez les informations d’identification que vous avez définies lors du déploiement de la machine virtuelle **az12001a-vm0**, laissez la case **Ouvrir dans un nouvel onglet de navigateur** cochée, puis sélectionnez **Se connecter** :
+1. Dans le panneau **az12001a-vm0**, sélectionnez **Se connecter**. Dans le menu déroulant, sélectionnez **Se connecter via Bastion**. Sous l’onglet **Bastion** d’**az12001a-vm0**, laissez le **Type d’authentification** défini sur **Mot de passe de la machine virtuelle**, indiquez les informations d’identification que vous avez définies lors du déploiement de la machine virtuelle **az12001a-vm0**, laissez la case **Ouvrir dans un nouvel onglet de navigateur** cochée, puis sélectionnez **Se connecter**.
 
 1. Répétez les deux étapes précédentes pour vous connecter via Bastion à la machine virtuelle Azure **az12001a-vm1**.
 
