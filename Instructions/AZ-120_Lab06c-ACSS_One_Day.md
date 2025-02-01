@@ -231,9 +231,9 @@ Cette activité correspond à la tâche suivante de cet exercice :
    |Sous-réseau d’application|**app**|
    |Sous-réseau de base de données|**db**|
    |Options d’image du système d’exploitation d’application|**Utiliser une image de marketplace**|
-   |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
+   |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.6 pour applications SAP - x64 Gen2 version la plus récente**|
    |Options d’image du système d’exploitation de base de données|**Utiliser une image de marketplace**|
-   |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
+   |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.6 pour applications SAP - x64 Gen2 version la plus récente**|
    |Options de transport SAP|**Créer un répertoire de transport SAP**|
    |Groupe de ressources de transport|**acss-infra-RG**|
    |Nom du compte de stockage|*blank*|
