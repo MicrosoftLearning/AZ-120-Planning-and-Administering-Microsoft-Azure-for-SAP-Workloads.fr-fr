@@ -204,7 +204,7 @@ Durant cette tâche, vous créez et configurez un groupe de sécurité réseau (
    |Paramètre|Valeur|
    |---|---|
    |Source|**Any**|
-   |Source port ranges|*|
+   |Plages de ports source|*|
    |Destination|**Adresses IP**|
    |Plages d’adresses IP/CIDR de destination|**13.91.47.76,40.85.190.91,52.187.75.218,52.174.163.213,52.237.203.198,52.136.197.163,20.225.226.182,52.142.4.99,20.248.180.252,20.24.186.80**|
    |Service|**Personnalisée**|
@@ -225,7 +225,7 @@ Durant cette tâche, vous créez et configurez un groupe de sécurité réseau (
    |Paramètre|Valeur|
    |---|---|
    |Source|**Any**|
-   |Source port ranges|*|
+   |Plages de ports source|*|
    |Destination|**Adresses IP**|
    |Plages d’adresses IP/CIDR de destination|**52.188.224.179,52.186.168.210,52.188.81.163,40.121.202.140**|
    |Service|**Personnalisée**|
@@ -244,7 +244,7 @@ Durant cette tâche, vous créez et configurez un groupe de sécurité réseau (
    |Paramètre|Valeur|
    |---|---|
    |Source|**Any**|
-   |Source port ranges|*|
+   |Plages de ports source|*|
    |Destination|**Étiquette du service**|
    |Identification de destination|**Stockage**|
    |Service|**Personnalisée**|
@@ -265,7 +265,7 @@ Durant cette tâche, vous créez et configurez un groupe de sécurité réseau (
    |Paramètre|Valeur|
    |---|---|
    |Source|**Any**|
-   |Source port ranges|*|
+   |Plages de ports source|*|
    |Destination|**Étiquette du service**|
    |Identification de destination|**AzureKeyVault**|
    |Service|**Personnalisée**|
@@ -284,7 +284,7 @@ Durant cette tâche, vous créez et configurez un groupe de sécurité réseau (
    |Paramètre|Valeur|
    |---|---|
    |Source|**Any**|
-   |Source port ranges|*|
+   |Plages de ports source|*|
    |Destination|**Étiquette du service**|
    |Identification de destination|**AzureActiveDirectory**|
    |Service|**Personnalisée**|
@@ -303,7 +303,7 @@ Durant cette tâche, vous créez et configurez un groupe de sécurité réseau (
    |Paramètre|Valeur|
    |---|---|
    |Source|**Any**|
-   |Source port ranges|*|
+   |Plages de ports source|*|
    |Destination|**Étiquette du service**|
    |Identification de destination|**AzureResourceManager**|
    |Service|**Personnalisée**|
@@ -322,7 +322,7 @@ Durant cette tâche, vous créez et configurez un groupe de sécurité réseau (
    |Paramètre|Valeur|
    |---|---|
    |Source|**Any**|
-   |Source port ranges|*|
+   |Plages de ports source|*|
    |Destination|**Étiquette du service**|
    |Identification de destination|**Internet**|
    |Service|**Personnalisée**|
@@ -402,9 +402,9 @@ Cette activité correspond à la tâche suivante de cet exercice :
    |Sous-réseau d’application|**app (10.0.2.0/24)**|
    |Sous-réseau de base de données|**db (10.0.3.0/24)**|
    |Options d’image du système d’exploitation d’application|**Utiliser une image de marketplace**|
-   |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
+   |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.4 pour applications SAP - x64 Gen2 version la plus récente**|
    |Options d’image du système d’exploitation de base de données|**Utiliser une image de marketplace**|
-   |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
+   |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.4 pour applications SAP - x64 Gen2 version la plus récente**|
    |Options de transport SAP|**Ne pas inclure le répertoire de transport SAP**|
    |Type d'authentification|**SSH public**|
    |Nom d’utilisateur|**contososapadmin**|
