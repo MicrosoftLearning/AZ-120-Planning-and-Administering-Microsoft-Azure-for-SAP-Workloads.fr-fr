@@ -129,7 +129,7 @@ L’exercice se compose des tâches suivantes :
     |---|---|
     |Abonnement|Nom de l’abonnement Azure que vous utilisez dans ce labo|
     |Resource group|Nom d’un **nouveau** groupe de ressources **ACSS-DEMO**|
-    |Nom du compte de stockage|Nom global unique comprenant entre 3 et 24 caractères alphanumériques|
+    |Nom du compte de stockage|Nom global unique comprenant entre 3 et 24 caractères alphanumériques|
     |Région|Nom de la région Azure dans laquelle vous disposez de quotas de processeurs virtuels suffisants pour exécuter ce labo|
     |Performances|**Standard**|
     |Redondance|**Stockage géo-redondant (GRS)**|
@@ -487,8 +487,8 @@ L’exercice se compose des tâches suivantes :
     |Réseau virtuel|**CONTOSO-VNET**|
     |Sous-réseau d’application|**app (10.5.0.0/24)**|
     |Sous-réseau de base de données|**db (10.5.2.0/24)**|
-    |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2, version la plus récente**|
-    |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.2 pour applications SAP – x64 Gen2 version la plus récente**|
+    |Image du système d’exploitation d’application|**Red Hat Enterprise Linux 8.4 pour applications SAP - x64 Gen2 version la plus récente**|
+    |Image du système d’exploitation de base de données|**Red Hat Enterprise Linux 8.4 pour applications SAP - x64 Gen2 version la plus récente**|
     |Options de transport SAP|**Créer un répertoire de transport SAP**|
     |Groupe de ressources de transport|**ACSS-DEMO**|
     |Nom du compte de stockage|Aucune entrée|
