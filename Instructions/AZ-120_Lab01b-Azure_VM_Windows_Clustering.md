@@ -107,7 +107,9 @@ Dans cet exercice, vous allez déployer des composants de calcul d’infrastruct
 
     > **Remarque** : Si le déploiement échoue avec une erreur incluant l’indication `PowerShell DSC resource MSFT_xADDomainController failed to execute Set-TargetResource functionality with error message: Domain 'adatum.com' could not be found`, procédez comme suit pour corriger ce problème :
 
-    - Dans le portail Azure, accédez au panneau de la machine virtuelle **adBDC** ; dans le menu de navigation vertical situé à gauche, dans la section **Paramètres**, sélectionnez **Extensions + applications** ; dans le volet **Extensions + applications**, sélectionnez **PrepareBDC** ; dans le volet **Préparer BDC**, sélectionnez **Désinstaller**. 
+    - Dans le portail Azure, accédez au panneau de **adVNET**, dans le menu de navigation vertical situé à gauche, dans la section **Paramètres**, sélectionnez **Serveurs DNS**, sur la page **Serveurs DNS\|de adVNET**, supprimez l’entrée **10.0.0.5** puis sélectionnez **Enregistrer**.
+      
+    - Accédez au panneau de la machine virtuelle **adBDC**, dans le menu de navigation vertical situé à gauche, dans la section **Paramètres**, sélectionnez **Extensions + applications**, dans le panneau **Extensions + applications**, sélectionnez **PrepareBDC**, puis, dans le panneau **Prepare BDC**, sélectionnez **Désinstaller**. 
 
     - Revenez au panneau de la machine virtuelle **adBDC**, puis redémarrez la machine virtuelle Azure.
 
